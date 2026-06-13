@@ -12,7 +12,7 @@ export function Footer() {
               {profile.initials}
             </span>
             <div>
-              <div className="font-display text-lg font-bold">{profile.name}</div>
+              <div className="font-display text-lg font-bold">Shivam Prasad</div>
               <div className="text-xs text-muted-foreground">{profile.title}</div>
             </div>
           </div>
@@ -58,7 +58,8 @@ export function Footer() {
         </div>
       </div>
       <div className="mx-auto mt-10 max-w-6xl px-5 text-xs text-muted-foreground">
-        © {new Date().getFullYear()} {profile.name}. Crafted with care.
+        © {new Date().getFullYear()} Shivam. Crafted with care.
+
       </div>
     </footer>
   );
