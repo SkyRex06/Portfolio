@@ -20,7 +20,9 @@ export function Navbar() {
       const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
       setProgress(pct);
 
-      const sections = navLinks.map((l) => document.getElementById(l.id)).filter(Boolean) as HTMLElement[];
+      const sections = navLinks
+        .map((l) => document.getElementById(l.id))
+        .filter(Boolean) as HTMLElement[];
       const y = window.scrollY + 120;
       for (let i = sections.length - 1; i >= 0; i--) {
         if (sections[i].offsetTop <= y) {
@@ -42,7 +44,10 @@ export function Navbar() {
   return (
     <>
       <div className="fixed inset-x-0 top-0 z-[60] h-0.5 bg-transparent">
-        <div className="h-full bg-gradient-vibrant transition-[width]" style={{ width: `${progress}%` }} />
+        <div
+          className="h-full bg-gradient-vibrant transition-[width]"
+          style={{ width: `${progress}%` }}
+        />
       </div>
       <motion.header
         initial={{ y: -32, opacity: 0 }}
@@ -84,12 +89,18 @@ export function Navbar() {
 
         <div className="flex items-center gap-2">
           <a href={profile.resumeUrl} download="Shivam Resume.pdf" className="hidden sm:block">
-            <Button size="sm" className="bg-gradient-vibrant text-primary-foreground hover:opacity-90">
-              <Download className="mr-1.5 h-4 w-4" /> 
+            <Button
+              size="sm"
+              className="bg-gradient-vibrant text-primary-foreground hover:opacity-90"
+            >
+              <Download className="mr-1.5 h-4 w-4" />
               Resume
             </Button>
           </a>
-          <button onClick={() => setOpen(!open)} className="grid h-9 w-9 place-items-center rounded-lg glass md:hidden">
+          <button
+            onClick={() => setOpen(!open)}
+            className="grid h-9 w-9 place-items-center rounded-lg glass md:hidden"
+          >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
         </div>
@@ -108,7 +119,9 @@ export function Navbar() {
                 onClick={() => handleClick(l.id)}
                 className={cn(
                   "rounded-xl px-3 py-2.5 text-left text-sm font-medium transition-colors",
-                  active === l.id ? "bg-white/10 text-foreground" : "text-muted-foreground hover:bg-white/5",
+                  active === l.id
+                    ? "bg-white/10 text-foreground"
+                    : "text-muted-foreground hover:bg-white/5",
                 )}
               >
                 {l.label}

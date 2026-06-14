@@ -9,11 +9,28 @@ type Props = {
   alt?: string;
 };
 
-export function ImagePlaceholder({ label = "Image", className, aspect = "aspect-video", src, alt }: Props) {
+export function ImagePlaceholder({
+  label = "Image",
+  className,
+  aspect = "aspect-video",
+  src,
+  alt,
+}: Props) {
   if (src) {
     return (
-      <div className={cn("relative overflow-hidden rounded-2xl border border-white/10 glass", aspect, className)}>
-        <img src={src} alt={alt ?? label} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+      <div
+        className={cn(
+          "relative overflow-hidden rounded-2xl border border-white/10 glass",
+          aspect,
+          className,
+        )}
+      >
+        <img
+          src={src}
+          alt={alt ?? label}
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
       </div>
     );
   }

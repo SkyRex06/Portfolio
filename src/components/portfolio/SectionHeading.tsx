@@ -20,7 +20,11 @@ export function SectionHeading({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={cn("max-w-2xl", align === "center" ? "mx-auto text-center" : "text-left", className)}
+      className={cn(
+        "max-w-2xl",
+        align === "center" ? "mx-auto text-center" : "text-left",
+        className,
+      )}
     >
       {eyebrow && (
         <span className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs font-medium uppercase tracking-widest text-muted-foreground">
@@ -31,7 +35,9 @@ export function SectionHeading({
       <h2 className="mt-4 text-4xl font-bold md:text-5xl">
         <span className="text-gradient">{title}</span>
       </h2>
-      {description && <p className="mt-4 text-base text-muted-foreground md:text-lg">{description}</p>}
+      {description && (
+        <p className="mt-4 text-base text-muted-foreground md:text-lg">{description}</p>
+      )}
     </motion.div>
   );
 }

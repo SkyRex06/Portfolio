@@ -1,10 +1,5 @@
-- [x] Add demo + videoUrl fields to Exoplanet project in src/data/portfolio.ts
-- [x] Extend Project type to support videoUrl
-- [x] Embed YouTube video on /projects/$slug page (ProjectDetail) for projects that have videoUrl
-- [x] Add exo0..exo3 images to Exoplanet gallery section
-- [ ] Run typecheck/build to ensure no TS errors
+# TODO
 
-
-
-
-
+- [ ] Fix Vite dev server root returning 404 by updating vite.config.ts SPA fallback
+- [ ] Re-run `npm run dev` and confirm `/` returns HTTP 200 and React mounts
+- [ ] If still broken, remove/disable TanStack Start server runtime wiring from Vite path

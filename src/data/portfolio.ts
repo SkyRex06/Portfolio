@@ -27,7 +27,6 @@ import L4Img from "@/assets/L4.png";
 import L5Img from "@/assets/L5.png";
 import L6Img from "@/assets/L6.png";
 
-
 const emailAddress = "shivamprasad5953@example.com";
 
 const emailSubject = encodeURIComponent("Portfolio inquiry");
@@ -176,7 +175,8 @@ export const projects: Project[] = [
       { prompt: "Research figure with charts", caption: "Research Figure" },
       { prompt: "Research paper PDF preview", caption: "Paper Preview" },
     ],
-    github: "https://github.com/SkyRex06/A-Causality-Based-AI-Engine-for-Detecting-and-Controlling-Misinformation",
+    github:
+      "https://github.com/SkyRex06/A-Causality-Based-AI-Engine-for-Detecting-and-Controlling-Misinformation",
     demo: "https://a-causality-based-ai-engine-for-det.vercel.app/",
     imageGallery: [
       { src: CI0Img, caption: "Architecture" },
@@ -239,7 +239,6 @@ export const leadership = [
   },
 ];
 
-
 export const research = {
   title: "A Causality-Based AI Engine for Detecting and Controlling Misinformation",
   description:
@@ -253,7 +252,13 @@ export const research = {
     "React Dashboard",
     "Neo4j Graph Database",
   ],
-  visuals: ["Architecture Diagram", "Research Charts", "Dashboard Screenshot", "System Flow", "Research Figure"],
+  visuals: [
+    "Architecture Diagram",
+    "Research Charts",
+    "Dashboard Screenshot",
+    "System Flow",
+    "Research Figure",
+  ],
   paperUrl: "/projects/cbae",
   repoUrl: "https://github.com/skyrex06/cbae",
 };

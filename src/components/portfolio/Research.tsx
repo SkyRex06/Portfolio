@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Link } from "@tanstack/react-router";
 import { BookOpen, ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { research } from "@/data/portfolio";
@@ -37,11 +36,12 @@ export function Research() {
             </div>
 
             <div className="mt-6 flex flex-wrap gap-2">
-              <Link to={research.paperUrl}>
+              <a href={research.paperUrl} target="_blank" rel="noreferrer">
                 <Button className="bg-gradient-vibrant text-primary-foreground">
-                  <BookOpen className="mr-1.5 h-4 w-4" /> Case Study <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
+                  <BookOpen className="mr-1.5 h-4 w-4" /> Case Study{" "}
+                  <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
                 </Button>
-              </Link>
+              </a>
               <a href={research.repoUrl} target="_blank" rel="noreferrer">
                 <Button variant="outline" className="glass border-white/15">
                   <Github className="mr-1.5 h-4 w-4" /> Repository
@@ -52,7 +52,11 @@ export function Research() {
 
           <div className="grid grid-cols-2 gap-3">
             {research.visuals.slice(0, 4).map((v, i) => (
-              <ImagePlaceholder key={v + i} label={v} aspect={i === 0 ? "aspect-square col-span-2" : "aspect-square"} />
+              <ImagePlaceholder
+                key={v + i}
+                label={v}
+                aspect={i === 0 ? "aspect-square col-span-2" : "aspect-square"}
+              />
             ))}
           </div>
         </motion.div>

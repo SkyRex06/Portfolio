@@ -2,7 +2,8 @@ import { Github, Linkedin, Mail, Code2 } from "lucide-react";
 import { navLinks, profile } from "@/data/portfolio";
 
 export function Footer() {
-  const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  const scrollTo = (id: string) =>
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   return (
     <footer className="relative border-t border-white/10 py-12">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 md:grid-cols-3">
@@ -22,11 +23,16 @@ export function Footer() {
         </div>
 
         <div>
-          <div className="text-xs font-medium uppercase tracking-widest text-muted-foreground">Quick Links</div>
+          <div className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+            Quick Links
+          </div>
           <ul className="mt-4 grid grid-cols-2 gap-2 text-sm">
             {navLinks.map((l) => (
               <li key={l.id}>
-                <button onClick={() => scrollTo(l.id)} className="text-muted-foreground hover:text-foreground">
+                <button
+                  onClick={() => scrollTo(l.id)}
+                  className="text-muted-foreground hover:text-foreground"
+                >
                   {l.label}
                 </button>
               </li>
@@ -35,7 +41,9 @@ export function Footer() {
         </div>
 
         <div>
-          <div className="text-xs font-medium uppercase tracking-widest text-muted-foreground">Find Me</div>
+          <div className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+            Find Me
+          </div>
           <div className="mt-4 flex gap-2">
             {[
               { href: profile.socials.github, Icon: Github, label: "GitHub" },
@@ -59,7 +67,6 @@ export function Footer() {
       </div>
       <div className="mx-auto mt-10 max-w-6xl px-5 text-xs text-muted-foreground">
         © {new Date().getFullYear()} Shivam. Crafted with care.
-
       </div>
     </footer>
   );

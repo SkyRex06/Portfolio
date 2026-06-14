@@ -74,7 +74,10 @@ export function Experience() {
                     className="col-span-2"
                   />
                 )) || (
-                  <ImagePlaceholder label="Offer letter / onboarding document" aspect="aspect-video" />
+                  <ImagePlaceholder
+                    label="Offer letter / onboarding document"
+                    aspect="aspect-video"
+                  />
                 )}
               </div>
             </motion.div>

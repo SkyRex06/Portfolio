@@ -18,8 +18,12 @@ export function Stats() {
               <div className="pointer-events-none absolute inset-0 -z-10 opacity-0 transition-opacity group-hover:opacity-100">
                 <div className="absolute inset-0 bg-gradient-to-br from-brand/15 to-accent/10" />
               </div>
-              <div className="font-display text-3xl font-bold text-gradient-brand md:text-4xl">{s.value}</div>
-              <div className="mt-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">{s.label}</div>
+              <div className="font-display text-3xl font-bold text-gradient-brand md:text-4xl">
+                {s.value}
+              </div>
+              <div className="mt-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                {s.label}
+              </div>
             </motion.div>
           ))}
         </div>

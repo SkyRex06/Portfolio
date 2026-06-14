@@ -5,7 +5,10 @@ import { profile } from "@/data/portfolio";
 
 export function Hero() {
   return (
-    <section id="home" className="relative isolate flex min-h-[100svh] items-center overflow-hidden pt-28 pb-16">
+    <section
+      id="home"
+      className="relative isolate flex min-h-[100svh] items-center overflow-hidden pt-28 pb-16"
+    >
       {/* Background mesh */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-brand/30 blur-3xl animate-blob" />
@@ -36,28 +39,40 @@ export function Hero() {
             <span className="text-gradient-brand">{profile.title}</span>
           </p>
 
-          <p className="mt-3 text-sm font-medium text-muted-foreground sm:text-base">{profile.subheading}</p>
+          <p className="mt-3 text-sm font-medium text-muted-foreground sm:text-base">
+            {profile.subheading}
+          </p>
 
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">{profile.description}</p>
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
+            {profile.description}
+          </p>
 
           <div className="mt-7 flex flex-wrap items-center gap-3">
             <Button
               size="lg"
-              onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() =>
+                document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
+              }
               className="bg-gradient-vibrant text-primary-foreground shadow-elegant hover:opacity-95"
             >
               View Projects <ArrowRight className="ml-1.5 h-4 w-4" />
             </Button>
-              <a href={profile.resumeUrl} download="Shivam Resume.pdf">
-                <Button size="lg" variant="outline" className="glass border-white/15 hover:bg-white/10">
-                  <Download className="mr-1.5 h-4 w-4" /> Resume
-                </Button>
-              </a>
-             
+            <a href={profile.resumeUrl} download="Shivam Resume.pdf">
+              <Button
+                size="lg"
+                variant="outline"
+                className="glass border-white/15 hover:bg-white/10"
+              >
+                <Download className="mr-1.5 h-4 w-4" /> Resume
+              </Button>
+            </a>
+
             <Button
               size="lg"
               variant="ghost"
-              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() =>
+                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+              }
               className="glass border-white/15 hover:bg-white/10"
             >
               <Mail className="mr-1.5 h-4 w-4" /> Contact Me
@@ -74,10 +89,14 @@ export function Hero() {
               <a
                 key={label}
                 href={href}
-                onClick={external ? undefined : (e) => {
-                  e.preventDefault();
-                  window.location.href = href;
-                }}
+                onClick={
+                  external
+                    ? undefined
+                    : (e) => {
+                        e.preventDefault();
+                        window.location.href = href;
+                      }
+                }
                 target={external ? "_blank" : undefined}
                 rel={external ? "noreferrer" : undefined}
                 aria-label={label}

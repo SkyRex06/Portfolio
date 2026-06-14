@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
+
 import { ArrowUpRight, ExternalLink, Github, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { projects } from "@/data/portfolio";
@@ -10,7 +11,11 @@ export function Projects() {
   return (
     <section id="projects" className="relative py-24">
       <div className="mx-auto max-w-6xl px-5">
-        <SectionHeading eyebrow="Featured Work" title="Selected Projects" description="A snapshot of the products, platforms, and research I've shipped." />
+        <SectionHeading
+          eyebrow="Featured Work"
+          title="Selected Projects"
+          description="A snapshot of the products, platforms, and research I've shipped."
+        />
 
         <div className="mt-14 grid gap-7">
           {projects.map((p, i) => (
@@ -32,7 +37,9 @@ export function Projects() {
                     <span className="rounded-full bg-gradient-vibrant px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-primary-foreground">
                       {p.badge}
                     </span>
-                    <span className="text-xs uppercase tracking-widest text-muted-foreground">{p.subtitle}</span>
+                    <span className="text-xs uppercase tracking-widest text-muted-foreground">
+                      {p.subtitle}
+                    </span>
                   </div>
                   <h3 className="mt-3 font-display text-3xl font-bold md:text-4xl">
                     <span className="text-gradient">{p.title}</span>
@@ -41,7 +48,10 @@ export function Projects() {
 
                   <div className="mt-5 flex flex-wrap gap-2">
                     {p.tech.map((t) => (
-                      <span key={t} className="rounded-full glass px-2.5 py-1 text-xs font-medium text-muted-foreground">
+                      <span
+                        key={t}
+                        className="rounded-full glass px-2.5 py-1 text-xs font-medium text-muted-foreground"
+                      >
                         {t}
                       </span>
                     ))}
@@ -62,7 +72,7 @@ export function Projects() {
                         </Button>
                       </a>
                     )}
-                    <Link to="/projects/$slug" params={{ slug: p.slug }}>
+                    <Link to={`/projects/${p.slug}`}>
                       <Button size="sm" className="bg-gradient-vibrant text-primary-foreground">
                         <FileText className="mr-1.5 h-4 w-4" /> Overview
                         <ArrowUpRight className="ml-1 h-3.5 w-3.5" />

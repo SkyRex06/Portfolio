@@ -9,7 +9,11 @@ export function Hackathons() {
   return (
     <section id="hackathons" className="relative py-24">
       <div className="mx-auto max-w-6xl px-5">
-        <SectionHeading eyebrow="Hackathons" title="Wins, Finals & Demo Days" description="Building under pressure — shipping, presenting, and winning." />
+        <SectionHeading
+          eyebrow="Hackathons"
+          title="Wins, Finals & Demo Days"
+          description="Building under pressure — shipping, presenting, and winning."
+        />
 
         <div className="mt-14 space-y-10">
           {hackathons.map((h, i) => (
@@ -21,7 +25,12 @@ export function Hackathons() {
               transition={{ duration: 0.6, delay: i * 0.05 }}
               className="relative overflow-hidden rounded-3xl glass-strong p-8"
             >
-              <div className={cn("pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br opacity-60", h.tone)} />
+              <div
+                className={cn(
+                  "pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br opacity-60",
+                  h.tone,
+                )}
+              />
               <div className="grid gap-8 lg:grid-cols-[1fr_1.4fr]">
                 <div>
                   <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs font-bold uppercase tracking-widest">

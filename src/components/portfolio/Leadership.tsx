@@ -7,7 +7,11 @@ export function Leadership() {
   return (
     <section id="leadership" className="relative py-24">
       <div className="mx-auto max-w-6xl px-5">
-        <SectionHeading eyebrow="Community" title="Leadership & Community Impact" description="Leading workshops, summits, and student communities." />
+        <SectionHeading
+          eyebrow="Community"
+          title="Leadership & Community Impact"
+          description="Leading workshops, summits, and student communities."
+        />
 
         <div className="mt-10 space-y-10">
           {leadership.map((l, i) => (

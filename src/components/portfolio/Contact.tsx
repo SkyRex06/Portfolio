@@ -1,53 +1,20 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Code2, Send } from "lucide-react";
+import { Github, Linkedin, Mail, Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { toast } from "sonner";
 import { profile } from "@/data/portfolio";
 import { SectionHeading } from "./SectionHeading";
 
 const cards = [
-  { Icon: Mail, label: "Email", value: "Drop me a line", href: profile.socials.email, external: false },
-  { Icon: Github, label: "GitHub", value: "See my code", href: profile.socials.github, external: true },
-  { Icon: Linkedin, label: "LinkedIn", value: "Let's connect", href: profile.socials.linkedin, external: true },
-  { Icon: Code2, label: "LeetCode", value: "Watch me grind", href: profile.socials.leetcode, external: true },
+  { Icon: Mail, label: "Email", value: "Drop me a line", href: profile.socials.email },
+  { Icon: Github, label: "GitHub", value: "See my code", href: profile.socials.github },
+  { Icon: Linkedin, label: "LinkedIn", value: "Let's connect", href: profile.socials.linkedin },
+  { Icon: Code2, label: "LeetCode", value: "Watch me grind", href: profile.socials.leetcode },
 ];
 
 export function Contact() {
-  const [sending, setSending] = useState(false);
-
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-    const name = String(formData.get("name") ?? "");
-    const email = String(formData.get("email") ?? "");
-    const message = String(formData.get("message") ?? "");
-
-    setSending(true);
-    try {
-      const res = await fetch("/server/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message }),
-      });
-
-      if (!res.ok) {
-        const text = await res.text().catch(() => "");
-        throw new Error(text || `Request failed (${res.status})`);
-      }
-
-      form.reset();
-      toast.success("Message saved! We'll get back to you soon.");
-    } catch {
-      toast.error("Failed to send message. Please try again.");
-    } finally {
-      setSending(false);
-    }
-  };
+  // Kept to avoid changing component structure more than necessary.
+  const [_sending] = useState(false);
 
   return (
     <section id="contact" className="relative py-24">
@@ -60,16 +27,12 @@ export function Contact() {
 
         <div className="mt-14 grid gap-8 lg:grid-cols-[1fr_1.1fr]">
           <div className="grid grid-cols-2 gap-3">
-            {cards.map(({ Icon, label, value, href, external }) => (
+            {cards.map(({ Icon, label, value, href }) => (
               <motion.a
                 key={label}
-                href={href}
-                onClick={external ? undefined : (e) => {
-                  e.preventDefault();
-                  window.location.href = href;
-                }}
-                target={external ? "_blank" : undefined}
-                rel={external ? "noreferrer" : undefined}
+                href={href.startsWith("mailto:") ? href : href}
+                target={href.startsWith("mailto:") ? undefined : "_blank"}
+                rel={href.startsWith("mailto:") ? undefined : "noreferrer"}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -86,38 +49,28 @@ export function Contact() {
             ))}
           </div>
 
-          <motion.form
-            onSubmit={onSubmit}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="rounded-3xl glass-strong p-6 md:p-8"
           >
-            <div className="grid gap-4">
-              <div className="grid gap-2">
-                <label className="text-xs font-medium uppercase tracking-widest text-muted-foreground">Name</label>
-                <Input required name="name" placeholder="Your name" className="glass border-white/15" />
+            <div className="space-y-4">
+              <p className="text-sm text-muted-foreground">
+                I’m currently not using a hosted backend for contact submissions.
+              </p>
+              <div>
+                <div className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+                  Email
+                </div>
+                <Button asChild className="mt-3 bg-gradient-vibrant text-primary-foreground">
+                  <a href={profile.socials.email}>Send an email</a>
+                </Button>
               </div>
-              <div className="grid gap-2">
-                <label className="text-xs font-medium uppercase tracking-widest text-muted-foreground">Email</label>
-                <Input required type="email" name="email" placeholder="you@email.com" className="glass border-white/15" />
-              </div>
-              <div className="grid gap-2">
-                <label className="text-xs font-medium uppercase tracking-widest text-muted-foreground">Message</label>
-                <Textarea required name="message" placeholder="What are you building?" rows={5} className="glass border-white/15" />
-              </div>
-              <Button type="submit" disabled={sending} className="bg-gradient-vibrant text-primary-foreground">
-                {sending ? "Sending..." : (
-                  <>
-                    <Send className="mr-1.5 h-4 w-4" /> Send Message
-                  </>
-                )}
-              </Button>
             </div>
-          </motion.form>
+          </motion.div>
         </div>
       </div>
     </section>
   );
 }
-

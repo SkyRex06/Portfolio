@@ -7,7 +7,11 @@ export function Journey() {
   return (
     <section id="about" className="relative py-24">
       <div className="mx-auto max-w-6xl px-5">
-        <SectionHeading eyebrow="About" title="The Journey" description="Student → Builder → Hackathon Winner → Intern → Leading Tech Clubs" />
+        <SectionHeading
+          eyebrow="About"
+          title="The Journey"
+          description="Student → Builder → Hackathon Winner → Intern → Leading Tech Clubs"
+        />
 
         <div className="mt-14 grid gap-10 lg:grid-cols-[1fr_1.2fr]">
           <motion.div
@@ -20,9 +24,8 @@ export function Journey() {
             <h3 className="font-display text-2xl font-bold">Builder. Leader. Researcher.</h3>
             <p className="mt-4 text-muted-foreground">
               I love taking ambiguous problems from zero to one — shipping AI-powered products,
-              leading communities, and contributing to research that pushes ideas forward.
-              My work sits at the intersection of engineering rigor, AI experimentation, and
-              human impact.
+              leading communities, and contributing to research that pushes ideas forward. My work
+              sits at the intersection of engineering rigor, AI experimentation, and human impact.
             </p>
             <div className="mt-6 grid grid-cols-2 gap-3 text-sm">
               {["Builder mindset", "Problem solving", "Leadership", "Innovation"].map((p) => (
@@ -48,7 +51,9 @@ export function Journey() {
                 <span className="absolute -left-[34px] top-6 grid h-5 w-5 place-items-center rounded-full bg-gradient-vibrant shadow-elegant">
                   <span className="h-1.5 w-1.5 rounded-full bg-background" />
                 </span>
-                <div className="text-xs uppercase tracking-widest text-muted-foreground">Step {i + 1}</div>
+                <div className="text-xs uppercase tracking-widest text-muted-foreground">
+                  Step {i + 1}
+                </div>
                 <div className="mt-1 font-display text-lg font-semibold">{j.title}</div>
                 <p className="mt-1 text-sm text-muted-foreground">{j.desc}</p>
               </motion.li>
