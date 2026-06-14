@@ -6,7 +6,6 @@ import { Projects } from "../components/portfolio/Projects";
 import { Experience } from "../components/portfolio/Experience";
 import { Hackathons } from "../components/portfolio/Hackathons";
 import { Leadership } from "../components/portfolio/Leadership";
-import { Research } from "../components/portfolio/Research";
 import { Contact } from "../components/portfolio/Contact";
 import { Footer } from "../components/portfolio/Footer";
 import { Toaster } from "../components/ui/sonner";
@@ -23,7 +22,6 @@ export function IndexPage() {
         <Experience />
         <Hackathons />
         <Leadership />
-        <Research />
         <Contact />
       </main>
       <Footer />
